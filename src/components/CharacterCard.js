@@ -9,6 +9,8 @@ export default function CharacterCard (props) {
 
     <Card.Content>
       <Card.Header>{name}</Card.Header>
+      <Card.Description><p>Status: {status}</p>
+      <p>Species: {species}</p></Card.Description>
     </Card.Content>
   </Card>
   )

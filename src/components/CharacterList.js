@@ -10,7 +10,7 @@ export default function CharacterList() {
   useEffect(() => {
     Axios.get("https://rickandmortyapi.com/api/character/")
       .then(response => {
-        setCharactersData(Array.from(response.data.results));
+        setCharactersData(response.data.results);
       })
       .catch(error => console.error(error));
   }, []);

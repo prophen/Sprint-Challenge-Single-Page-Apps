@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import Axios from "axios"
+import EpisodeCard from './EpisodeCard'
+
 
 export default function EpisodesList() {
+  const [episodesData, setEpisodesData] = useState({})
+
+  useEffect(() => {
+    Axios.get('https://rickandmortyapi.com/api/episode/')
+    .then(response => {
+      setEpisodesData(response.data.results)
+    })
+    .catch(error => console.error(error))
+  }, [])
+
   return (
-     <section className="welcome-page">
-    <header>
-      <h1>Welcome to the ultimate fan site!</h1>
-      <img className="main-img ui centered medium circular image" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="rick" />
-    </header>
+     <section className="grid-view">
+    {episodesData && Array.from(episodesData).map((item, key) => <EpisodeCard episodeData={item} key={key} />)}
   </section>
   )
 }

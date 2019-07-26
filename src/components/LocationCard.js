@@ -10,19 +10,15 @@ export default function LocationCard(props) {
         <Card.Header>
           <span>{name}</span>
         </Card.Header>
-        <Card.Meta>
-        Type: {type}
-        </Card.Meta>
-        <Card.Description>
-          Dimension: {dimension}
-          </Card.Description>
+        <Card.Meta>Type: {type}</Card.Meta>
+        <Card.Description>Dimension: {dimension}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-      <a>
-        <Icon name='user' />
-        {residents.length}
-      </a>
-    </Card.Content>
+        <i>
+          <Icon name="user" />
+          {residents.length}
+        </i>
+      </Card.Content>
     </Card>
   );
 }
